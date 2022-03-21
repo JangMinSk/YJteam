@@ -3,11 +3,14 @@ package com.example.ArztDB.vo;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import lombok.Getter;
 import lombok.Setter;
+import lombok.ToString;
 
 import java.util.Date;
 
+
 @Getter
 @Setter
+@ToString
 public class BoardVo {
 
     //작성일자
@@ -16,7 +19,7 @@ public class BoardVo {
 
     //PK
     @JsonProperty
-    private String bno;
+    private int bno;
 
     //제목
     @JsonProperty

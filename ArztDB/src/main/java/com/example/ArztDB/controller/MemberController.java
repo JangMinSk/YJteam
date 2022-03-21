@@ -34,6 +34,7 @@ public class MemberController {
     public List<MemberVo> userShow() {
         return memberService.getAllMember();
     }
+
     //로그인
     @RequestMapping(value ="/login" , method = RequestMethod.POST)
     public SessionVo memberLogin(@RequestBody MemberVo memberVo) {

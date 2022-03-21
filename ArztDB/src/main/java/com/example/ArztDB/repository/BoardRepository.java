@@ -15,6 +15,10 @@ public interface BoardRepository {
     List<BoardVo> boardlist();
 
     BoardVo boardInsert(BoardVo boardVo);
+
+    BoardVo boardDelete(BoardVo boardVo);
+
+    BoardVo boardUpdate(BoardVo boardVo);
     //select * from Test_Table
 //    List<Map<String, Object>> boardList() throws Exception;
 
