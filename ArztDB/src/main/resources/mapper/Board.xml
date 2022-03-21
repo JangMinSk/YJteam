@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+
+<mapper namespace="com.example.ArztDB.repository.BoardXmlMapper">
+
+    <select id="boardCount" resultType="int">
+
+SELECT COUNT(*) FROM BOARDBNO
+    </select>
+
+    <select id="boardList" resultType="BoardVo">
+        <![CDATA[
+select * from (
+               select rownum rn * from BOARDBNO
+
+where rownum <=20)
+where rn>10
+    ]]>
+
+    </select>
+
+    <select id="boardDetail" parameterType="int" resultType="com.example.ArztDB.vo.BoardVo">
+SELECT * FROM BOARDBNO WHERE BNO = #{bno} </select>
+
+    <insert id="boardInsert" parameterType="com.example.ArztDB.vo.BoardVo">
+INSERT INTO BOARDBNO (BNO, SUBJECT, CONTENT, WRITER, REG_DATE)
+VALUES(ID_seq.NEXTVAL, #{subject}, #{content}, #{writer}, SYSDATE) </insert>
+    <update id="boardUpdate" parameterType="com.example.ArztDB.vo.BoardVo">
+UPDATE BOARDBNO SET <if test="subject != null"> SUBJECT = #{subject} </if>
+
+<if test="subject != null and content != null">, </if>
+
+<if test="content != null">CONTENT = #{content} </if>
+
+WHERE BNO = #{bno}
+</update>
+
+    <delete id="boardDelete" parameterType="int">
+DELETE FROM BOARDBNO WHERE BNO = #{bno}
+</delete>
+    <select id="getsubject" resultType="BoardVo">
+        select * from boardbno where subject = #{subject}
+    </select>
+    <select id="getcontent" resultType="BoardVo">
+        select * from boardbno where content = #{content}
+    </select>
+
+    <select id="getwriter" resultType="BoardVo">
+        select * from boardbno where writer = #{writer}
+    </select>
+</mapper>
+
+
