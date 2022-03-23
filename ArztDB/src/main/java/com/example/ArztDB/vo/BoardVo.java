@@ -17,9 +17,9 @@ public class BoardVo {
     @JsonProperty
     private Date date;
 
-    //PK
+    //img URL source
     @JsonProperty
-    private int bno;
+    private String bno;
 
     //제목
     @JsonProperty

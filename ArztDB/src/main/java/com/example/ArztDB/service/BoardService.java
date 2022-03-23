@@ -24,7 +24,7 @@ public class BoardService implements BoardRepository {
 
     @Override
     public BoardVo boardInsert(BoardVo boardVo){
-        System.out.println("req왓다 2");
+        System.out.println("생성완료");
         System.out.println(boardVo.toString());
         mapper.boardInsert(boardVo);
 
@@ -37,25 +37,10 @@ public class BoardService implements BoardRepository {
 
     @Override
     public  BoardVo boardUpdate(BoardVo boardVo){
+        System.out.println("변경");
+
        return mapper.boardUpdate(boardVo);
     }
-//    @Override
-//    public List<Map<String, Object>> boardList() throws Exception {
-//
-//        return mapper.boardList();
-//    }
-//
-//    @Override
-//    public List<Map<String, Object>> boardList(Pagination pagination) throws Exception {
-//
-//        return mapper.boardList(pagination);
-//    }
-//
-//    @Override
-//    public int boardCount() throws Exception {
-//
-//        return mapper.boardCount();
-//    }
 }
 
 

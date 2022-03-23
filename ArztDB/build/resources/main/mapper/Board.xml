@@ -26,19 +26,14 @@ SELECT COUNT(*) FROM BOARDBNO
 SELECT * FROM BOARDBNO WHERE BNO = #{bno} </select>
 
     <insert id="boardInsert" parameterType="BoardVo">
-INSERT INTO BOARDBNO VALUES(ID_seq.NEXTVAL, #{subject}, #{content}, #{writer}, default ) </insert>
+INSERT INTO BOARDBNO VALUES(#{bno}, #{subject}, #{content}, #{writer}, default ) </insert>
     <update id="boardUpdate" parameterType="com.example.ArztDB.vo.BoardVo">
-UPDATE BOARDBNO SET <if test="subject != null"> SUBJECT = #{subject} </if>
-
-<if test="subject != null and content != null">, </if>
-
-<if test="content != null">CONTENT = #{content} </if>
-
+UPDATE BOARDBNO SET subject=#{subject},content=#{content}
 WHERE BNO = #{bno}
 </update>
 
     <delete id="boardDelete" parameterType="BoardVo">
-DELETE FROM BOARDBNO WHERE BNO = #{bno}
+DELETE FROM BOARDBNO WHERE subject = #{subject}
 </delete>
 
 
